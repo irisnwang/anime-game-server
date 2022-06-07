@@ -3,7 +3,9 @@ import cors from 'cors';
 import questionController from "./controllers/questions-controller.js"
 import mongoose from "mongoose";
 
-mongoose.connect('mongodb://0.0.0.0:27017/anime');
+const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://0.0.0.0:27017/anime'
+
+mongoose.connect(CONNECTION_STRING)
 
 const app = express();
 
